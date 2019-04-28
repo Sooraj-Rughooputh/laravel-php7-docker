@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+
+  myproject-web:
+    container_name: myproject-web
+    build:
+      context: ..
+      dockerfile: docker/web/Dockerfile
+    ports:
+      - "11000:80"
+    volumes:
+      - ../application:/app

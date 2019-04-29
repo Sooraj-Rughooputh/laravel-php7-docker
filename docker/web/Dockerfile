@@ -1,4 +1,5 @@
 FROM alpine:3.9
+MAINTAINER Sooraj Rughooputh <soorajrug@googlemail.com>
 
 RUN apk add \
         --no-cache \
@@ -32,15 +33,11 @@ RUN apk add \
 WORKDIR /app
 
 COPY ./application/composer.* ./
-
-RUN composer install -n --no-autoloader --no-scripts --no-progress --no-suggest
-
+COPY ./docker/web/web.sh /run/web.sh
 COPY application .
 
-RUN composer dump-autoload -o -n && \
-    chown -R apache:apache /app/storage
-
-COPY application .
+RUN composer install -n --no-autoloader --no-scripts --no-progress --no-suggest && \
+    chmod 755 /run/web.sh
 
 RUN composer dump-autoload -o -n && \
     chown -R apache:apache /app/storage

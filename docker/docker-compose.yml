@@ -8,6 +8,6 @@ services:
       context: ..
       dockerfile: docker/web/Dockerfile
     ports:
-      - "11000:80"
+      - "12100:80"
     volumes:
       - ../application:/app

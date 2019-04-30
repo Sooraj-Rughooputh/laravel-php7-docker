@@ -3,11 +3,6 @@ rebuild:
 	@docker-compose -p project -f docker/docker-compose-dev.yml up -d --build
 	@docker exec myproject-web composer install --prefer-dist --no-suggest
 
-rebuild-no-seed:
-	@docker-compose -p project -f docker/docker-compose-dev.yml down --remove-orphans
-	@docker-compose -p project -f docker/docker-compose-dev.yml up -d --build
-	@docker exec myproject-web composer install --prefer-dist --no-suggest
-
 down:
 	@docker-compose -p project -f docker/docker-compose-dev.yml down --remove-orphans
 

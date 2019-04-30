@@ -6,8 +6,10 @@ services:
     container_name: myproject-web
     build:
       context: ..
-      dockerfile: docker/web/Dockerfile
+      dockerfile: docker/Dockerfile
     ports:
       - "12100:80"
     volumes:
       - ../application:/app
+    env_file:
+      - .env-dev

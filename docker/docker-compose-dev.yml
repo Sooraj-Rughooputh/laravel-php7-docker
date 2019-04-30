@@ -13,3 +13,16 @@ services:
       - ../application:/app
     env_file:
       - .env-dev
+
+  myproject-mysql:
+    container_name: myproject-mysql
+    image: mysql:5.7
+    ports:
+      - "12200:3306"
+    env_file:
+      - .env-dev
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10

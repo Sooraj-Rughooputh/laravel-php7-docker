@@ -1,3 +1,5 @@
+include docker/.env-dev
+
 rebuild:
 	@docker-compose -p project -f docker/docker-compose-dev.yml down --remove-orphans
 	@docker-compose -p project -f docker/docker-compose-dev.yml up -d --build
@@ -20,3 +22,6 @@ logs:
 
 prune:
 	@docker system prune --all --force --volumes
+
+mysql:
+	@mysql -h $(MYSQL_HOST_SHELL) -P $(MYSQL_HOST_PORT) -u $(MYSQL_USER) -p$(MYSQL_PASSWORD) $(MYSQL_DATABASE)

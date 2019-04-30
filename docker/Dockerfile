@@ -20,6 +20,12 @@ RUN apk add \
         php7-tokenizer \
         php7-xml \
         php7-xmlwriter \
+        php7-fileinfo \
+        php7-ctype \
+        php7-gd \
+        php7-simplexml \
+        php7-xmlreader \
+        php7-zip \
     && mkdir -p /run/apache2 \
     && ln -sf /dev/stdout /var/log/apache2/access.log \
     && ln -sf /dev/stderr /var/log/apache2/error.log

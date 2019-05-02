@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:latest
 MAINTAINER Sooraj Rughooputh <soorajrug@googlemail.com>
 
 RUN apk add \

@@ -15,7 +15,7 @@ services:
       - myproject-mysql
     depends_on:
       myproject-mysql:
-        condition: service_healthy
+          condition: service_healthy
     env_file:
       - .env-dev
 

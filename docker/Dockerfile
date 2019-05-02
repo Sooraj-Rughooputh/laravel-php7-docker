@@ -35,6 +35,8 @@ WORKDIR /app
 COPY application/composer.* ./
 RUN composer install -n --no-autoloader --no-scripts --no-progress --no-suggest
 
+COPY docker/apache2.conf /etc/apache2/conf.d
+
 COPY docker/web.sh /run/web.sh
 RUN chmod 755 /run/web.sh
 

@@ -44,8 +44,6 @@ COPY application .
 RUN composer dump-autoload -o -n && \
     chown -R apache:apache /app/storage
 
-COPY .git/HEAD /GIT_BRANCH_INFO
-
 EXPOSE 80
 
 CMD /run/web.sh

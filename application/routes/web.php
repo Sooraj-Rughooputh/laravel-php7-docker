@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $git_branch = '';
+    $head_file = '/GIT_BRANCH_INFO';
+
+    if (file_exists($head_file)) {
+        $git_branch = file_get_contents($head_file);
+        $git_branch = explode('/', $git_branch);
+        $git_branch = end($git_branch);
+    }
+
+    return view('welcome', [
+      'git_branch_name' => $git_branch,
+    ]);
 });

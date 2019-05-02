@@ -11,6 +11,11 @@ services:
       - "12100:80"
     volumes:
       - ../application:/app
+    links:
+      - myproject-mysql
+    depends_on:
+      myproject-mysql:
+        condition: service_healthy
     env_file:
       - .env-dev
 
